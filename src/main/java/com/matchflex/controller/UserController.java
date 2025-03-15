@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true") // Enable CORS for Angular frontend app running on port 4200
 public class UserController {
 
     private final UserService userService;

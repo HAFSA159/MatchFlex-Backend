@@ -1,5 +1,6 @@
 package com.matchflex.entity;
 
+import com.matchflex.entity.Enum.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -22,8 +23,18 @@ public class User {
     private String lastName;
     private String phoneNumber;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL)
     private SmartBand smartBand;
 
+    public boolean isAdmin() {
+        return role == Role.ADMIN;
+    }
+
+    public boolean isUser() {
+        return role == Role.USER;
+    }
 }
 

@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/matches")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true") // Enable CORS for Angular frontend app running on port 4200
 public class MatchController {
 
     private final MatchService matchService;
